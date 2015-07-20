@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="C:\DATABASEFOLDER\EXAMSDB.MDF" Class="DataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=localhost;Initial Catalog=C:\DATABASEFOLDER\EXAMSDB.MDF;Integrated Security=True" SettingsObjectName="WindowsFormsApplication.Properties.Settings" SettingsPropertyName="C__DATABASEFOLDER_EXAMSDB_MDFConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Categories" Member="Categories">
+    <Type Name="Categories">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Association Name="Categories_Questions" Member="Questions" ThisKey="id" OtherKey="categoryID" Type="Questions" />
+      <Association Name="Categories_Tests" Member="Tests" ThisKey="id" OtherKey="categoryID" Type="Tests" />
+      <Association Name="Categories_Tests1" Member="Tests1" ThisKey="id" OtherKey="categoryID" Type="Tests" />
+      <Association Name="Categories_UsersAndCategories" Member="UsersAndCategories" ThisKey="id" OtherKey="categoryID" Type="UsersAndCategories" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Cities" Member="Cities">
+    <Type Name="Cities">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="Cities_Users" Member="Users" ThisKey="id" OtherKey="cityID" Type="Users" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Questions" Member="Questions">
+    <Type Name="Questions">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="categoryID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="text_1" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="text_2" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="text_3" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="text_4" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="text_5" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="text_6" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="text_7" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="text_8" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="text_9" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="text_10" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="Questions_Tests" Member="Tests" ThisKey="id" OtherKey="questionsID" Type="Tests" />
+      <Association Name="Categories_Questions" Member="Categories" ThisKey="categoryID" OtherKey="id" Type="Categories" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tests" Member="Tests">
+    <Type Name="Tests">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="categoryID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="questionsID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="maxTime" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="passMark" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Tests_TestWorks" Member="TestWorks" ThisKey="id" OtherKey="testID" Type="TestWorks" />
+      <Association Name="Categories_Tests" Member="Categories" ThisKey="categoryID" OtherKey="id" Type="Categories" IsForeignKey="true" />
+      <Association Name="Categories_Tests1" Member="Categories1" ThisKey="categoryID" OtherKey="id" Type="Categories" IsForeignKey="true" />
+      <Association Name="Questions_Tests" Member="Questions" ThisKey="questionsID" OtherKey="id" Type="Questions" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TestWorks" Member="TestWorks">
+    <Type Name="TestWorks">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="userID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="testID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="result" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="leadTime" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Tests_TestWorks" Member="Tests" ThisKey="testID" OtherKey="id" Type="Tests" IsForeignKey="true" />
+      <Association Name="Users_TestWorks" Member="Users" ThisKey="userID" OtherKey="id" Type="Users" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Unvercities" Member="Unvercities">
+    <Type Name="Unvercities">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="Unvercities_Users" Member="Users" ThisKey="id" OtherKey="univerID" Type="Users" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Users" Member="Users">
+    <Type Name="Users">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="email" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="age" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="cityID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="univerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Users_TestWorks" Member="TestWorks" ThisKey="id" OtherKey="userID" Type="TestWorks" />
+      <Association Name="Users_UsersAndCategories" Member="UsersAndCategories" ThisKey="id" OtherKey="userID" Type="UsersAndCategories" />
+      <Association Name="Cities_Users" Member="Cities" ThisKey="cityID" OtherKey="id" Type="Cities" IsForeignKey="true" />
+      <Association Name="Unvercities_Users" Member="Unvercities" ThisKey="univerID" OtherKey="id" Type="Unvercities" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UsersAndCategories" Member="UsersAndCategories">
+    <Type Name="UsersAndCategories">
+      <Column Name="userID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="categoryID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Categories_UsersAndCategories" Member="Categories" ThisKey="categoryID" OtherKey="id" Type="Categories" IsForeignKey="true" />
+      <Association Name="Users_UsersAndCategories" Member="Users" ThisKey="userID" OtherKey="id" Type="Users" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

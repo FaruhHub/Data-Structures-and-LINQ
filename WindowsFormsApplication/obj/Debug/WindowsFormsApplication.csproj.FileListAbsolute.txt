@@ -1,0 +1,9 @@
+C:\Users\Faruh\Documents\GitHub\WindowsFormsApplication\WindowsFormsApplication\bin\Debug\WindowsFormsApplication.exe.config
+C:\Users\Faruh\Documents\GitHub\WindowsFormsApplication\WindowsFormsApplication\bin\Debug\WindowsFormsApplication.exe
+C:\Users\Faruh\Documents\GitHub\WindowsFormsApplication\WindowsFormsApplication\bin\Debug\WindowsFormsApplication.pdb
+C:\Users\Faruh\Documents\GitHub\WindowsFormsApplication\WindowsFormsApplication\obj\Debug\WindowsFormsApplication.MainForm.resources
+C:\Users\Faruh\Documents\GitHub\WindowsFormsApplication\WindowsFormsApplication\obj\Debug\WindowsFormsApplication.Properties.Resources.resources
+C:\Users\Faruh\Documents\GitHub\WindowsFormsApplication\WindowsFormsApplication\obj\Debug\WindowsFormsApplication.csproj.GenerateResource.Cache
+C:\Users\Faruh\Documents\GitHub\WindowsFormsApplication\WindowsFormsApplication\obj\Debug\WindowsFormsApplication.exe
+C:\Users\Faruh\Documents\GitHub\WindowsFormsApplication\WindowsFormsApplication\obj\Debug\WindowsFormsApplication.pdb
+C:\Users\Faruh\Documents\GitHub\WindowsFormsApplication\WindowsFormsApplication\obj\Debug\WindowsFormsApplication.csprojResolveAssemblyReference.cache
